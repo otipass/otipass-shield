@@ -1,0 +1,13 @@
+{
+    "remote":"https://remote.com",
+    "actions": [
+        "crash",
+        {
+            "name":"log",
+            "actions": [
+                "network",
+                "system"
+            ]
+        }
+    ]
+}

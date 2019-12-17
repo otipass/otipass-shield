@@ -1,0 +1,22 @@
+{
+  "name": "react-native-ot-shield",
+  "version": "1.0.2",
+  "description": "shield your app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otipass/otipass-shield.git"
+  },
+  "keywords": [
+    "shield"
+  ],
+  "author": "3jedgcm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otipass/otipass-shield/issues"
+  },
+  "homepage": "https://github.com/otipass/otipass-shield#readme"
+}
