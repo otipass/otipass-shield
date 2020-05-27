@@ -2,22 +2,30 @@ class Shield {
 
     constructor() {
         this.prt = async (action,data,subAction) => {
+            try {
+                let formData = new FormData()
 
-            let formData = new FormData()
+                for(let param in data) {
+                    formData.append(param,data[param])
+                }
 
-            for(let param in data) {
-                formData.append(param,data[param])
+                for(let param in this.configuration.static) {
+                    formData.append(param, this.configuration.static[param])
+                }
+
+                if(subAction) {
+                    formData.append(this.configuration.field_action,subAction)
+                } else {
+                    formData.append(this.configuration.field_action,action)
+                }
+
+                let result = await fetch(this.configuration.remote,{method:'post',body:formData})
+                let resultJSON = await result.json()
+                return resultJSON
+            } catch (error) {
+                
             }
-
-            if(subAction) {
-                formData.append('action',subAction)
-            } else {
-                formData.append('action',action)
-            }
-
-            let result = await fetch(this.configuration.remote + '/' + action,{method:'post',body:formData})
-            let resultJSON = await result.json()
-            return resultJSON
+            
         }
     }
 
@@ -46,6 +54,4 @@ class Shield {
 }
 
 const shield = new Shield()
-//export default shield
-
-//Shield.crash(data)
+export default shield
